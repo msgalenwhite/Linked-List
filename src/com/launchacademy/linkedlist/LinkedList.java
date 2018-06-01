@@ -20,16 +20,42 @@ public class LinkedList {
   
   public void appendNode(Node nodeToAppend) {
     //Add node to the end of the list
+	  
+	Node node = head;
+	while (node.next != null) {
+	  node = node.next;
+	}
+	node.next = nodeToAppend;
   }
   
   public void insertAfter(Node prevNode, Node newNode) {
     //Insert newNode into the LinkedList after prevNode
+
+	Node oldNext = prevNode.next;
+	prevNode.next = newNode;
+	newNode.next = oldNext;
   }
   
   public Node deleteNode(Node nodeToDelete) {
     //Remove nodeToDelete from the LinkedList
     //nullify its next reference
     //Note: be sure to handle what happens if we delete the head
+	  
+	if (head == nodeToDelete) {
+	  return deleteHead();
+	}
+	
+	Node node = head.next;
+	Node nodeToSave = head;
+	
+	while (node != nodeToDelete) {
+	  nodeToSave = node;
+	  node = node.next;
+	}
+
+	nodeToSave.next = nodeToDelete.next;
+	nodeToDelete.next = null;
+	return nodeToDelete;
   }
   
   public void pushNode(Node nodeToPush) {
@@ -50,4 +76,14 @@ public class LinkedList {
   public void makeUnique() {
     //eliminate all duplicate words in the list
   }
+  
+  public Node deleteHead() {
+	Node newHead = head.next;
+	Node nodeToDelete = head;
+	
+	head = newHead;
+	nodeToDelete.next = null;
+	return nodeToDelete;
+  }
+
 }
