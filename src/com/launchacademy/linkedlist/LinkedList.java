@@ -65,7 +65,19 @@ public class LinkedList {
   
   public int length() {
     //return the length of the linked list
-    return 0;
+	  
+	// if there is only 1 node, we will never enter the while loop
+	// so length had to be initialized at one
+	  
+	int length = 1;
+	Node node = head;
+	
+	while (node.next != null) {
+	  length += 1;
+	  node = node.next;
+	}
+
+    return length;
   }
   
   //Extra credit:
