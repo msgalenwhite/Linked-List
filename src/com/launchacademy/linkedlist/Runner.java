@@ -11,6 +11,7 @@ public class Runner {
     theNode.next = orangeNode;
     orangeNode.next = catNode;
     
+    //output "The Orange Cat"
     System.out.println(sentence.toString());
     
     //output "The Orange Furry Cat"  
@@ -27,5 +28,22 @@ public class Runner {
     //output "An Orange Furry Dog"
     sentence.deleteNode(theNode);
     sentence.pushNode(new Node("An"));
+    System.out.println(sentence.toString());
+    
+    //output 4
+    System.out.println(sentence.length());
+    
+    //output "An Orange Furry Dog"
+    sentence.pushNode(new Node("Dog"));
+    sentence.pushNode(new Node("Furry"));
+    sentence.pushNode(new Node("Orange"));
+    sentence.pushNode(new Node("Dog"));
+    sentence.makeUnique();
+    System.out.println(sentence.toString());
+    
+    //output "An Orange"
+    System.deleteWordsStartingWith('F');
+    System.deleteWordsStartingWith('d');
+    System.out.println(sentence.toString());
   }
 }

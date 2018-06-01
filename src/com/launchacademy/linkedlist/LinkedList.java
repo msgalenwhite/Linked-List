@@ -61,6 +61,8 @@ public class LinkedList {
   public void pushNode(Node nodeToPush) {
     //Make nodeToPush the head
     //Move the old head
+	nodeToPush.next = head;
+	head = nodeToPush;
   }
   
   public int length() {
@@ -83,13 +85,16 @@ public class LinkedList {
   //Extra credit:
   public void deleteWordsStartingWith(char letter) {
     //eliminate all words starting with the specified letter
+
+
   }
   
   public void makeUnique() {
     //eliminate all duplicate words in the list
+	
   }
   
-  public Node deleteHead() {
+  private Node deleteHead() {
 	Node newHead = head.next;
 	Node nodeToDelete = head;
 	
@@ -97,5 +102,4 @@ public class LinkedList {
 	nodeToDelete.next = null;
 	return nodeToDelete;
   }
-
 }
