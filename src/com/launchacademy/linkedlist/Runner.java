@@ -37,13 +37,13 @@ public class Runner {
     sentence.pushNode(new Node("Dog"));
     sentence.pushNode(new Node("Furry"));
     sentence.pushNode(new Node("Orange"));
-    sentence.pushNode(new Node("Dog"));
+    sentence.pushNode(new Node("An"));
     sentence.makeUnique();
     System.out.println(sentence.toString());
     
     //output "An Orange"
-    System.deleteWordsStartingWith('F');
-    System.deleteWordsStartingWith('d');
+    sentence.deleteWordsStartingWith('F');
+    sentence.deleteWordsStartingWith('d');
     System.out.println(sentence.toString());
   }
 }
